@@ -20,12 +20,29 @@ console.log('Gracz wpisał: ' + playerInput);
 
 let playerMove = 'nieznany ruch';
 
-if(playerInput == '1'){
+if(playerInput == 1){
   playerMove = 'kamień';
-} else if (playerMove == 2) {
+} else if (playerInput == 2) {
     playerMove = 'papier'
-} else {
+} else if (playerInput == 3) {
     playerMove = 'nożyce'
-}
+} else (playerMove = 'nieznany ruch')
 
 printMessage('Twój ruch to: ' + playerMove);
+
+if(computerMove == 'kamień' && playerMove == 'papier') {
+    printMessage('Wygrałeś');
+} else if (computerMove == 'papier' && playerMove == 'nożyce') {
+    printMessage('Wygrałeś');
+} else if (computerMove == 'nożyce' && playerMove == 'kamień') {
+    printMessage('Wygrałeś');
+} else if (computerMove == 'kamień' && playerMove == 'nożyce') {
+    printMessage('Przegrałeś');
+} else if (computerMove == 'papier' && playerMove == 'kamień') {
+    printMessage('Przegrałeś');
+} else if (computerMove == 'nożyce' && playerMove == 'papier') {
+    printMessage('Przegrałeś');
+} else if (computerMove == playerMove) {
+    printMessage('remis');
+} else printMessage('wybrałeś niewłaściwe zagranie');
+
