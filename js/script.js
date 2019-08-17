@@ -1,24 +1,22 @@
-function playGame(input){
+function playGame(input) {
     clearMessages();
 
     let playerInput = input;
 
-    function getMoveName(argMoveId){    
-        if(argMoveId == 1){
-        return 'kamień';
+    function getMoveName(argMoveId) {    
+        if(argMoveId == 1) {
+            return 'kamień';
         } else if(argMoveId == 2) {
-        return 'papier';
+            return 'papier';
         } else if(argMoveId == 3) {
-        return 'nożyce';
-        } else if(argMoveId == '') {
-            return 'nic nie wybrałeś'
-        }
+            return 'nożyce';
+        } 
     
         printMessage('Nie znam ruchu o id [  ' + argMoveId + '  ]');
         return 'nieznany ruch';
     }
 
-    function displayResult(argComputerMove, argPlayerMove){
+    function displayResult(argComputerMove, argPlayerMove) {
         printMessage('zagrałem ' + argComputerMove + ' ,a ty ' + argPlayerMove);
 
         if(argComputerMove == 'kamień' && argPlayerMove == 'papier') {
@@ -35,9 +33,11 @@ function playGame(input){
             printMessage('Przegrałeś');
         } else if (argComputerMove == argPlayerMove) {
             printMessage('remis');
-        } else if (argPlayerMove == 'nic nie wybrałeś'){
+        } else if (argPlayerMove == 'nic nie wybrałeś') {
             printMessage('Nie możemy grać jeśli nic nie wybierzesz');
-        } else printMessage('wybrałeś niewłaściwe zagranie');    
+        } else {
+            printMessage('wybrałeś niewłaściwe zagranie');
+        }
     }
 
     let randomNumber = Math.floor(Math.random() * 3 + 1);
