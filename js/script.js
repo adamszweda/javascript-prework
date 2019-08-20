@@ -1,9 +1,7 @@
-function playGame(input) {
+const playGame = function (playerInput) {
     clearMessages();
 
-    let playerInput = input;
-
-    function getMoveName(argMoveId) {    
+    const getMoveName = function (argMoveId) {
         if(argMoveId == 1) {
             return 'kamień';
         } else if(argMoveId == 2) {
@@ -16,7 +14,11 @@ function playGame(input) {
         return 'nieznany ruch';
     }
 
-    function displayResult(argComputerMove, argPlayerMove) {
+    const randomNumber = Math.floor(Math.random() * 3 + 1),
+          computerMove = getMoveName(randomNumber),
+          playerMove = getMoveName(playerInput);
+
+    const displayResult = function (argComputerMove, argPlayerMove) {
         printMessage('zagrałem ' + argComputerMove + ' ,a ty ' + argPlayerMove);
 
         if(argComputerMove == 'kamień' && argPlayerMove == 'papier') {
@@ -38,34 +40,10 @@ function playGame(input) {
         } else {
             printMessage('wybrałeś niewłaściwe zagranie');
         }
-    }
-
-    let randomNumber = Math.floor(Math.random() * 3 + 1);
-
-    console.log('Wylosowana liczba to: ' + randomNumber);
-
-    let computerMove = getMoveName(randomNumber);
-
-    /* if(randomNumber == 1){
-    computerMove = 'kamień';
-    } else if (randomNumber == 2) {
-        computerMove = 'papier'
-    } else {
-        computerMove = 'nożyce'
-    } */
-
+    }  
+    console.log('Wylosowana liczba to: ' + randomNumber); 
     console.log('Gracz wpisał: ' + playerInput);
-
-    let playerMove = getMoveName(playerInput);
-
-    /* if(playerInput == 1){
-    playerMove = 'kamień';
-    } else if (playerInput == 2) {
-        playerMove = 'papier'
-    } else if (playerInput == 3) {
-        playerMove = 'nożyce'
-    } else (playerMove = 'nieznany ruch') */
-
+     
     displayResult(computerMove,playerMove);
 }
 
@@ -73,4 +51,3 @@ document.getElementById('play-rock').addEventListener('click', function(){playGa
 document.getElementById('play-paper').addEventListener('click', function(){playGame(2)});
 document.getElementById('play-scissors').addEventListener('click', function(){playGame(3)});
 
-    
